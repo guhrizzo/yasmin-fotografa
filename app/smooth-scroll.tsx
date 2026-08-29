@@ -44,10 +44,10 @@ export default function SmoothScroll() {
         0,
         target.getBoundingClientRect().top + window.scrollY - OFFSET
       );
-      const reduceMotion =
-        document.documentElement.hasAttribute("data-a11y-reduce-motion") ||
-        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      if (reduceMotion) {
+      // Só desliga o scroll suave pelo controle explícito da barra de
+      // acessibilidade — o site mantém as animações mesmo com
+      // "prefers-reduced-motion" do sistema (igual ao scroll-reveal).
+      if (document.documentElement.hasAttribute("data-a11y-reduce-motion")) {
         window.scrollTo(0, targetY);
       } else {
         animateTo(targetY);

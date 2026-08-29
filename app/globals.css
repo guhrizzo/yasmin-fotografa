@@ -263,7 +263,9 @@ html[data-a11y-contrast] [tabindex]:focus-visible { outline-color: var(--accent)
 .a11y-reset { width: 100%; margin-top: 6px; padding: 10px; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; }
 
 /* Tradução em Libras (VLibras) — só aparece quando ativado */
-body:not(.vlibras-on) [vw] { display: none !important; }
+body:not(.vlibras-on) [vw],
+body:not(.vlibras-on) #vlibras-access-wrapper,
+body:not(.vlibras-on) #vlibras-app-root { display: none !important; }
 
 /* Sublinhar links */
 html[data-a11y-underline] main a,

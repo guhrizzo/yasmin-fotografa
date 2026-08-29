@@ -43,11 +43,28 @@ function applyPrefs(p: Prefs) {
   root.toggleAttribute("data-a11y-reduce-motion", p.reduceMotion);
 }
 
-let vlibrasLoaded = false;
+// O plugin do VLibras cria elementos próprios direto no <body> (fora do [vw]):
+// #vlibras-access-wrapper (botão, em Shadow DOM) e #vlibras-app-root (painel).
+// Todos precisam ser escondidos ao desativar.
+const VLIBRAS_SELECTOR = "[vw], #vlibras-access-wrapper, #vlibras-app-root";
+
+let vlibrasInjected = false;
+let vlibrasDesired = false;
+let vlibrasObserver: MutationObserver | null = null;
+
+function syncVLibrasVisibility() {
+  document.querySelectorAll<HTMLElement>(VLIBRAS_SELECTOR).forEach((el) => {
+    if (vlibrasDesired) el.style.removeProperty("display");
+    else el.style.setProperty("display", "none", "important");
+  });
+}
+
 function enableVLibras() {
+  vlibrasDesired = true;
   document.body.classList.add("vlibras-on");
-  if (vlibrasLoaded) return;
-  vlibrasLoaded = true;
+  syncVLibrasVisibility();
+  if (vlibrasInjected) return;
+  vlibrasInjected = true;
 
   const wrapper = document.createElement("div");
   wrapper.setAttribute("vw", "");
@@ -57,17 +74,29 @@ function enableVLibras() {
     '<div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div>';
   document.body.appendChild(wrapper);
 
+  // reaplica a visibilidade conforme o plugin vai criando seus elementos
+  vlibrasObserver = new MutationObserver(syncVLibrasVisibility);
+  vlibrasObserver.observe(document.body, { childList: true });
+
   const script = document.createElement("script");
   script.src = "https://vlibras.gov.br/app/vlibras-plugin.js";
   script.async = true;
   script.onload = () => {
     const w = window as unknown as { VLibras?: { Widget: new (url: string) => void } };
     if (w.VLibras) new w.VLibras.Widget("https://vlibras.gov.br/app");
+    let ticks = 0;
+    const timer = window.setInterval(() => {
+      syncVLibrasVisibility();
+      if (++ticks > 20) window.clearInterval(timer);
+    }, 150);
   };
   document.body.appendChild(script);
 }
+
 function disableVLibras() {
+  vlibrasDesired = false;
   document.body.classList.remove("vlibras-on");
+  syncVLibrasVisibility();
 }
 
 const AccessIcon = () => (
