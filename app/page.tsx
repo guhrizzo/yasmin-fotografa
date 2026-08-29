@@ -1,15 +1,15 @@
 import Image from "next/image";
 
 const portfolioImages = [
-  { src: "/IMG_9874.PNG", alt: "Ensaio fotográfico Yasmin 01", className: "md:row-span-2" },
-  { src: "/IMG_9875.JPG.jpeg", alt: "Ensaio fotográfico Yasmin 02", className: "" },
-  { src: "/IMG_9876.JPG.jpeg", alt: "Ensaio fotográfico Yasmin 03", className: "" },
-  { src: "/IMG_9878.PNG", alt: "Ensaio fotográfico Yasmin 04", className: "md:row-span-2" },
-  { src: "/IMG_9879.JPG.jpeg", alt: "Ensaio fotográfico Yasmin 05", className: "" },
-  { src: "/IMG_9880 (1).PNG", alt: "Ensaio fotográfico Yasmin 06", className: "" },
-  { src: "/IMG_9881 (1).PNG", alt: "Ensaio fotográfico Yasmin 07", className: "md:col-span-2" },
-  { src: "/IMG_9882 (1).PNG", alt: "Ensaio fotográfico Yasmin 08", className: "" },
-  { src: "/IMG_9883 (1).PNG", alt: "Ensaio fotográfico Yasmin 09", className: "" },
+  { src: "/galeria/01.jpg", alt: "Ensaio fotográfico Yasmin 01", className: "md:row-span-2" },
+  { src: "/galeria/02.jpg", alt: "Ensaio fotográfico Yasmin 02", className: "" },
+  { src: "/galeria/03.jpg", alt: "Ensaio fotográfico Yasmin 03", className: "" },
+  { src: "/galeria/04.jpg", alt: "Ensaio fotográfico Yasmin 04", className: "md:row-span-2" },
+  { src: "/galeria/05.jpg", alt: "Ensaio fotográfico Yasmin 05", className: "" },
+  { src: "/galeria/06.jpg", alt: "Ensaio fotográfico Yasmin 06", className: "" },
+  { src: "/galeria/07.jpg", alt: "Ensaio fotográfico Yasmin 07", className: "md:col-span-2" },
+  { src: "/galeria/08.jpg", alt: "Ensaio fotográfico Yasmin 08", className: "" },
+  { src: "/galeria/09.jpg", alt: "Ensaio fotográfico Yasmin 09", className: "" },
 ];
 
 const packageGroups = [
