@@ -6,6 +6,7 @@ const links = [
   { href: "#sobre", label: "sobre" },
   { href: "#portfolio", label: "portfólio" },
   { href: "#precos", label: "investimento" },
+  { href: "#depoimentos", label: "depoimentos" },
 ];
 
 export default function SiteNav() {

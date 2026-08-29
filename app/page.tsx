@@ -67,6 +67,45 @@ const prints = [
   { label: "30 fotos reveladas", value: "R$ 140" },
 ];
 
+const testimonials = [
+  {
+    quote:
+      "Eu sempre tive vergonha de tirar fotos, mas a Yasmin conseguiu deixar tudo tão leve que eu simplesmente esqueci da câmera. As fotos ficaram muito mais bonitas do que eu imaginava e, principalmente, muito mais parecidas comigo.",
+    name: "Ana Clara",
+    context: "ensaio individual",
+  },
+  {
+    quote:
+      "Nosso ensaio foi uma experiência muito especial. A Yasmin teve muita paciência e conseguiu registrar exatamente a nossa essência, sem deixar nada forçado. Quando recebemos as fotos, parecia que estávamos revivendo aquele dia.",
+    name: "Mariana & Lucas",
+    context: "ensaio de casal",
+  },
+  {
+    quote:
+      "Eu queria fazer um ensaio para marcar uma fase importante da minha vida e não poderia ter escolhido melhor fotógrafa. Cada detalhe foi pensado com muito carinho e o resultado ficou simplesmente incrível.",
+    name: "Beatriz",
+    context: "ensaio individual",
+  },
+  {
+    quote:
+      "O mais incrível foi que durante o ensaio parecia que estávamos apenas aproveitando o momento juntos. A Yasmin conseguiu transformar momentos simples em fotografias lindas e cheias de sentimento.",
+    name: "Camila & Rafael",
+    context: "pré-wedding",
+  },
+  {
+    quote:
+      "As fotos ficaram delicadas, naturais e exatamente do jeito que eu imaginava. Além do resultado, todo o atendimento foi maravilhoso. Me senti muito confortável desde o primeiro contato até a entrega das fotos.",
+    name: "Juliana",
+    context: "ensaio individual",
+  },
+  {
+    quote:
+      "Foi muito especial ter nossa família registrada dessa forma. As crianças ficaram à vontade e as fotos captaram pequenos momentos que provavelmente esqueceríamos com o tempo. Agora temos essas memórias para guardar para sempre.",
+    name: "Família Oliveira",
+    context: "ensaio de família",
+  },
+];
+
 const whatsappUrl =
   "https://wa.me/5514981184847?text=" +
   encodeURIComponent("Olá, Yasmin! Vi seu site e gostaria de conversar sobre um ensaio fotográfico.");
@@ -158,6 +197,21 @@ export default function Home() {
           <p><strong>Deslocamento</strong> — ensaios dentro da cidade sem taxa adicional. Para outras cidades, o valor é calculado conforme a distância.</p>
           <p><strong>Formas de pagamento</strong> — PIX (50% para reservar a data e 50% até o dia do ensaio) ou cartão à vista/parcelado com acréscimo da operadora. A data só é reservada após o pagamento do sinal.</p>
           <a className="text-link" href="/tabela_de_precos_ensaio.pdf" target="_blank" rel="noopener">baixar tabela completa <span>↓</span></a>
+        </div>
+      </section>
+
+      <section id="depoimentos" className="testimonials section-wrap">
+        <div className="section-heading" data-reveal>
+          <div><p className="eyebrow">quem já viveu isso</p><h2>Histórias que <em>ficaram.</em></h2></div>
+          <span className="count">{testimonials.length} depoimentos</span>
+        </div>
+        <div className="testimonial-grid">
+          {testimonials.map((item, index) => (
+            <figure className="testimonial-card" key={item.name} data-reveal style={revealDelay(index % 3, 90)}>
+              <blockquote>{item.quote}</blockquote>
+              <figcaption><span className="testimonial-name">{item.name}</span><span className="testimonial-context">{item.context}</span></figcaption>
+            </figure>
+          ))}
         </div>
       </section>
 
