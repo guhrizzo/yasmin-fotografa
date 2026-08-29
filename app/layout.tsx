@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Preloader from "./preloader";
 import SmoothScroll from "./smooth-scroll";
+import ScrollReveal from "./scroll-reveal";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
@@ -19,6 +20,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full">
         <Preloader />
         <SmoothScroll />
+        <ScrollReveal />
         {children}
       </body>
     </html>
