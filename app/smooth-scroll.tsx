@@ -40,9 +40,18 @@ export default function SmoothScroll() {
       if (!target) return;
 
       event.preventDefault();
-      const targetY =
-        target.getBoundingClientRect().top + window.scrollY - OFFSET;
-      animateTo(Math.max(0, targetY));
+      const targetY = Math.max(
+        0,
+        target.getBoundingClientRect().top + window.scrollY - OFFSET
+      );
+      const reduceMotion =
+        document.documentElement.hasAttribute("data-a11y-reduce-motion") ||
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduceMotion) {
+        window.scrollTo(0, targetY);
+      } else {
+        animateTo(targetY);
+      }
       history.pushState(null, "", hash);
     };
 

@@ -128,13 +128,14 @@ const WhatsappIcon = () => (
 
 export default function Home() {
   return (
-    <main>
+    <>
       <header className="site-header">
         <a className="logo-lockup" href="#inicio" aria-label="Yasmin Fotografia, início"><Image src="/logo.png" alt="Logo Yasmin Fotografia" width={150} height={150} priority /></a>
         <SiteNav />
         <a className="header-cta" href="#contato">vamos conversar <span>→</span></a>
       </header>
 
+      <main id="conteudo">
       <section id="inicio" className="hero section-wrap">
         <div className="hero-copy">
           <p className="eyebrow">fotografia com presença</p>
@@ -226,10 +227,11 @@ export default function Home() {
           <a className="contact-button" href="mailto:torquatoyasmin7@gmail.com">torquatoyasmin7@gmail.com <span>→</span></a>
         </div>
       </section>
+      </main>
 
       <a className="wa-float" href={whatsappUrl} target="_blank" rel="noopener noreferrer" aria-label="Falar com a Yasmin no WhatsApp"><WhatsappIcon /></a>
 
       <footer data-reveal><a className="logo-lockup" href="#inicio" aria-label="Yasmin Fotografia, início"><Image src="/logo.png" alt="Logo Yasmin Fotografia" width={150} height={150} /></a><p>© 2026 Yasmin Fotografia</p><span className="footer-social"><a href={instagramUrl} target="_blank" rel="noopener noreferrer" aria-label="Instagram da Yasmin"><InstagramIcon /></a><a href={whatsappUrl} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp da Yasmin"><WhatsappIcon /></a></span><a className="credit" href="https://wa.me/5514996472492?text=Ol%C3%A1%20vim%20pelo%20site%20da%20yasmin..." target="_blank" rel="noopener noreferrer">Desenvolvido por Gustavo Rizzo</a><a href="#inicio">voltar ao início ↑</a></footer>
-    </main>
+    </>
   );
 }

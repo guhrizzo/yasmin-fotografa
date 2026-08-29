@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
+import { lockScroll, unlockScroll } from "./scroll-lock";
 
 type GalleryImage = {
   src: string;
@@ -27,7 +28,7 @@ export default function Gallery({ images }: { images: GalleryImage[] }) {
 
   useEffect(() => {
     if (!isOpen) return;
-    document.body.style.overflow = "hidden";
+    lockScroll();
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") close();
       if (e.key === "ArrowRight") show(1);
@@ -35,7 +36,7 @@ export default function Gallery({ images }: { images: GalleryImage[] }) {
     };
     window.addEventListener("keydown", onKey);
     return () => {
-      document.body.style.overflow = "";
+      unlockScroll();
       window.removeEventListener("keydown", onKey);
     };
   }, [isOpen, close, show]);

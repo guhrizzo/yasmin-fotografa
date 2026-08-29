@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { lockScroll, unlockScroll } from "./scroll-lock";
 
 const MIN_DURATION = 1600;
 
@@ -9,7 +10,7 @@ export default function Preloader() {
   const [gone, setGone] = useState(false);
 
   useEffect(() => {
-    document.body.style.overflow = "hidden";
+    lockScroll();
     const start = Date.now();
 
     const finish = () => {
@@ -28,7 +29,7 @@ export default function Preloader() {
 
   useEffect(() => {
     if (!leaving) return;
-    document.body.style.overflow = "";
+    unlockScroll();
     const t = window.setTimeout(() => setGone(true), 900);
     return () => window.clearTimeout(t);
   }, [leaving]);

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { lockScroll, unlockScroll } from "./scroll-lock";
 
 const links = [
   { href: "#sobre", label: "sobre" },
@@ -13,10 +14,9 @@ export default function SiteNav() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
+    if (!open) return;
+    lockScroll();
+    return () => unlockScroll();
   }, [open]);
 
   useEffect(() => {
@@ -60,6 +60,7 @@ export default function SiteNav() {
       <button
         type="button"
         className={`nav-overlay${open ? " is-open" : ""}`}
+        aria-label="Fechar menu"
         aria-hidden={!open}
         tabIndex={-1}
         onClick={close}
