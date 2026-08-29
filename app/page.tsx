@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
 import Image from "next/image";
 import SiteNav from "./site-nav";
+import Gallery from "./gallery";
 
 const revealDelay = (index: number, step = 70): CSSProperties =>
   ({ "--reveal-delay": `${index * step}ms` } as CSSProperties);
@@ -70,7 +71,7 @@ const whatsappUrl =
   "https://wa.me/5514981184847?text=" +
   encodeURIComponent("Olá, Yasmin! Vi seu site e gostaria de conversar sobre um ensaio fotográfico.");
 
-const instagramUrl = "https://www.instagram.com/yasmintorquaoto/";
+const instagramUrl = "https://www.instagram.com/_byyasmedia/";
 
 const InstagramIcon = () => (
   <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -115,7 +116,7 @@ export default function Home() {
 
       <section id="portfolio" className="portfolio section-wrap">
         <div className="section-heading" data-reveal><div><p className="eyebrow">trabalhos selecionados</p><h2>Feito de <em>instantes.</em></h2></div><span className="count">09 histórias</span></div>
-        <div className="gallery">{portfolioImages.map((image, index) => <div className={`gallery-item ${image.className}`} key={image.src} data-reveal style={revealDelay(index % 3, 90)}><Image src={image.src} alt={image.alt} fill sizes="(max-width: 768px) 100vw, 33vw" /></div>)}</div>
+        <Gallery images={portfolioImages} />
       </section>
 
       <section id="precos" className="pricing section-wrap">
@@ -168,7 +169,7 @@ export default function Home() {
         </div>
         <div className="contact-actions" data-reveal style={revealDelay(1)}>
           <a className="whatsapp-button" href={whatsappUrl} target="_blank" rel="noopener noreferrer"><WhatsappIcon /> falar no WhatsApp <span>→</span></a>
-          <a className="contact-button" href="mailto:oi@yasminfotografia.com">oi@yasminfotografia.com <span>→</span></a>
+          <a className="contact-button" href="mailto:torquatoyasmin7@gmail.com">torquatoyasmin7@gmail.com <span>→</span></a>
         </div>
       </section>
 
