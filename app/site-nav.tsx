@@ -4,13 +4,13 @@ import { useEffect, useState } from "react";
 import { lockScroll, unlockScroll } from "./scroll-lock";
 
 const links = [
-  { href: "#sobre", label: "sobre" },
+  { href: "/sobre-mim", label: "sobre mim" },
   { href: "#portfolio", label: "portfólio" },
   { href: "#precos", label: "investimento" },
   { href: "#depoimentos", label: "depoimentos" },
 ];
 
-export default function SiteNav() {
+export default function SiteNav({ prefix = "" }: { prefix?: string }) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -48,7 +48,11 @@ export default function SiteNav() {
         className={`site-nav${open ? " is-open" : ""}`}
       >
         {links.map((link) => (
-          <a key={link.href} href={link.href} onClick={close}>
+          <a
+            key={link.href}
+            href={link.href.startsWith("#") ? `${prefix}${link.href}` : link.href}
+            onClick={close}
+          >
             {link.label}
           </a>
         ))}

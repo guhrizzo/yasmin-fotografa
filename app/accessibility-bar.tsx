@@ -2,7 +2,9 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 
-const STORAGE_KEY = "a11y:prefs";
+// v2: Libras passou a vir ativada por padrão — a chave nova ignora
+// preferências antigas salvas com a Libras desligada.
+const STORAGE_KEY = "a11y:prefs:v2";
 const ZOOM_STEPS = [0.9, 1, 1.15, 1.3, 1.45];
 const DEFAULT_ZOOM_INDEX = 1;
 
@@ -21,7 +23,7 @@ const DEFAULT_PREFS: Prefs = {
   contrast: false,
   underline: false,
   reduceMotion: false,
-  libras: false,
+  libras: true,
 };
 
 function readPrefs(): Prefs {
@@ -173,7 +175,7 @@ export default function AccessibilityBar() {
     }));
 
   const reset = () => {
-    disableVLibras();
+    (DEFAULT_PREFS.libras ? enableVLibras : disableVLibras)();
     setPrefs(DEFAULT_PREFS);
   };
 
