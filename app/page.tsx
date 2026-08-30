@@ -9,15 +9,27 @@ const revealDelay = (index: number, step = 70): CSSProperties =>
   ({ "--reveal-delay": `${index * step}ms` } as CSSProperties);
 
 const portfolioImages = [
-  { src: "/galeria/01.jpg", alt: "Ensaio fotográfico Yasmin 01", className: "md:row-span-2" },
-  { src: "/galeria/02.jpg", alt: "Ensaio fotográfico Yasmin 02", className: "" },
-  { src: "/galeria/03.jpg", alt: "Ensaio fotográfico Yasmin 03", className: "" },
-  { src: "/galeria/04.jpg", alt: "Ensaio fotográfico Yasmin 04", className: "md:row-span-2" },
-  { src: "/galeria/05.jpg", alt: "Ensaio fotográfico Yasmin 05", className: "" },
-  { src: "/galeria/06.jpg", alt: "Ensaio fotográfico Yasmin 06", className: "" },
-  { src: "/galeria/07.jpg", alt: "Ensaio fotográfico Yasmin 07", className: "md:col-span-2" },
-  { src: "/galeria/08.jpg", alt: "Ensaio fotográfico Yasmin 08", className: "" },
-  { src: "/galeria/09.jpg", alt: "Ensaio fotográfico Yasmin 09", className: "" },
+  { src: "/galeria/ensaio-01.jpg", alt: "Ensaio fotográfico Yasmin — 01", className: "md:row-span-2" },
+  { src: "/galeria/01.jpg", alt: "Ensaio fotográfico Yasmin — 02", className: "" },
+  { src: "/galeria/02.jpg", alt: "Ensaio fotográfico Yasmin — 03", className: "" },
+  { src: "/galeria/ensaio-03.jpg", alt: "Ensaio fotográfico Yasmin — 04", className: "md:col-span-2" },
+  { src: "/galeria/ensaio-02.jpg", alt: "Ensaio fotográfico Yasmin — 05", className: "" },
+  { src: "/galeria/03.jpg", alt: "Ensaio fotográfico Yasmin — 06", className: "md:row-span-2" },
+  { src: "/galeria/ensaio-04.jpg", alt: "Ensaio fotográfico Yasmin — 07", className: "" },
+  { src: "/galeria/04.jpg", alt: "Ensaio fotográfico Yasmin — 08", className: "" },
+  { src: "/galeria/ensaio-05.jpg", alt: "Ensaio fotográfico Yasmin — 09", className: "md:row-span-2" },
+  { src: "/galeria/09.jpg", alt: "Ensaio fotográfico Yasmin — 10", className: "md:col-span-2" },
+  { src: "/galeria/ensaio-06.jpg", alt: "Ensaio fotográfico Yasmin — 11", className: "" },
+  { src: "/galeria/05.jpg", alt: "Ensaio fotográfico Yasmin — 12", className: "md:row-span-2" },
+  { src: "/galeria/ensaio-07.jpg", alt: "Ensaio fotográfico Yasmin — 13", className: "md:col-span-2" },
+  { src: "/galeria/06.jpg", alt: "Ensaio fotográfico Yasmin — 14", className: "" },
+  { src: "/galeria/ensaio-08.jpg", alt: "Ensaio fotográfico Yasmin — 15", className: "" },
+  { src: "/galeria/07.jpg", alt: "Ensaio fotográfico Yasmin — 16", className: "md:col-span-2" },
+  { src: "/galeria/ensaio-09.jpg", alt: "Ensaio fotográfico Yasmin — 17", className: "md:row-span-2" },
+  { src: "/galeria/08.jpg", alt: "Ensaio fotográfico Yasmin — 18", className: "" },
+  { src: "/galeria/ensaio-10.jpg", alt: "Ensaio fotográfico Yasmin — 19", className: "" },
+  { src: "/galeria/ensaio-11.jpg", alt: "Ensaio fotográfico Yasmin — 20", className: "md:col-span-2" },
+  { src: "/galeria/ensaio-12.jpg", alt: "Ensaio fotográfico Yasmin — 21", className: "md:row-span-2" },
 ];
 
 const packageGroups = [
@@ -147,7 +159,7 @@ export default function Home() {
       </section>
 
       <section id="portfolio" className="portfolio section-wrap">
-        <div className="section-heading" data-reveal><div><p className="eyebrow">trabalhos selecionados</p><h2>Feito de <em>instantes.</em></h2></div><span className="count">09 histórias</span></div>
+        <div className="section-heading" data-reveal><div><p className="eyebrow">trabalhos selecionados</p><h2>Feito de <em>instantes.</em></h2></div><span className="count">{portfolioImages.length} histórias</span></div>
         <Gallery images={portfolioImages} />
       </section>
 
