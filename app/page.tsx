@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
 import Image from "next/image";
 import Gallery from "./gallery";
+import Backstage from "./backstage";
 import SiteHeader from "./site-header";
 import SiteFooter from "./site-footer";
 import ContactSection, { whatsappUrl, WhatsappIcon } from "./contact-section";
@@ -30,6 +31,15 @@ const portfolioImages = [
   { src: "/galeria/ensaio-10.jpg", alt: "Ensaio fotográfico Yasmin — 19", className: "" },
   { src: "/galeria/ensaio-11.jpg", alt: "Ensaio fotográfico Yasmin — 20", className: "md:col-span-2" },
   { src: "/galeria/ensaio-12.jpg", alt: "Ensaio fotográfico Yasmin — 21", className: "md:row-span-2" },
+];
+
+const backstageClips = [
+  { src: "/bastidores/01.mp4", poster: "/bastidores/01.jpg", alt: "Bastidores de ensaio Yasmin — 01" },
+  { src: "/bastidores/02.mp4", poster: "/bastidores/02.jpg", alt: "Bastidores de ensaio Yasmin — 02" },
+  { src: "/bastidores/03.mp4", poster: "/bastidores/03.jpg", alt: "Bastidores de ensaio Yasmin — 03" },
+  { src: "/bastidores/04.mp4", poster: "/bastidores/04.jpg", alt: "Bastidores de ensaio Yasmin — 04" },
+  { src: "/bastidores/05.mp4", poster: "/bastidores/05.jpg", alt: "Bastidores de ensaio Yasmin — 05" },
+  { src: "/bastidores/06.mp4", poster: "/bastidores/06.jpg", alt: "Bastidores de ensaio Yasmin — 06" },
 ];
 
 const packageGroups = [
@@ -161,6 +171,11 @@ export default function Home() {
       <section id="portfolio" className="portfolio section-wrap">
         <div className="section-heading" data-reveal><div><p className="eyebrow">trabalhos selecionados</p><h2>Feito de <em>instantes.</em></h2></div><span className="count">{portfolioImages.length} histórias</span></div>
         <Gallery images={portfolioImages} />
+      </section>
+
+      <section id="bastidores" className="backstage section-wrap">
+        <div className="section-heading" data-reveal><div><p className="eyebrow">nos bastidores</p><h2>Por trás <em>das fotos.</em></h2></div><span className="count">{backstageClips.length} vídeos</span></div>
+        <Backstage clips={backstageClips} />
       </section>
 
       <section id="precos" className="pricing section-wrap">

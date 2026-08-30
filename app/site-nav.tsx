@@ -6,6 +6,7 @@ import { lockScroll, unlockScroll } from "./scroll-lock";
 const links = [
   { href: "/sobre-mim", label: "sobre mim" },
   { href: "#portfolio", label: "portfólio" },
+  { href: "#bastidores", label: "bastidores" },
   { href: "#precos", label: "investimento" },
   { href: "#depoimentos", label: "depoimentos" },
 ];

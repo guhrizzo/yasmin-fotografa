@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# vídeos-fonte soltos na raiz de public/ (as versões web comprimidas ficam em public/bastidores/)
+/public/*.mp4
+/public/*.MP4
+/public/*.mov
+/public/*.MOV
