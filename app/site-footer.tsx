@@ -7,7 +7,7 @@ export default function SiteFooter({ prefix = "" }: { prefix?: string }) {
       <a className="logo-lockup" href={`${prefix}#inicio`} aria-label="Yasmin Fotografia, início">
         <Image src="/logo.png" alt="Logo Yasmin Fotografia" width={150} height={150} />
       </a>
-      <p>© 2026 Yasmin Fotografia</p>
+      <p>© {new Date().getFullYear()} Yasmin Fotografia</p>
       <span className="footer-social">
         <a href={instagramUrl} target="_blank" rel="noopener noreferrer" aria-label="Instagram da Yasmin"><InstagramIcon /></a>
         <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp da Yasmin"><WhatsappIcon /></a>
