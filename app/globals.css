@@ -110,9 +110,10 @@ h1, h2 { font-family: Georgia, serif; font-weight: 400; letter-spacing: -.055em;
 .notfound { min-height: calc(100dvh - 240px); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding-block: 80px; }
 .notfound .eyebrow { margin-bottom: 4px; }
 .notfound-glyph { display: flex; align-items: center; justify-content: center; gap: clamp(10px, 3vw, 28px); font-family: Georgia, serif; font-size: clamp(88px, 15vw, 176px); line-height: 1; letter-spacing: -.05em; color: color-mix(in srgb, var(--foreground) 80%, transparent); }
-/* Georgia usa algarismos de estilo antigo (com descendente): sobe os "4" p/ centrar oticamente com o globo. */
-.notfound-glyph > span:not(.notfound-globe) { transform: translateY(-0.15em); }
-.notfound-globe { display: block; width: clamp(88px, 14vw, 148px); }
+/* Georgia usa algarismos de estilo antigo (o "4" tem descendente) e o globo do cobe renderiza
+   um pouco acima do centro da tela: sobe os "4" e desce o globo p/ centrar oticamente. */
+.notfound-glyph > span:not(.notfound-globe) { transform: translateY(-0.1em); }
+.notfound-globe { display: block; width: clamp(88px, 14vw, 148px); transform: translateY(0.1em); }
 .notfound h1 { margin-top: 30px; }
 .notfound-copy { max-width: 420px; margin: 24px 0 36px; color: var(--muted-foreground); font-size: 15px; line-height: 1.7; }
 .notfound-actions { display: flex; flex-direction: column; gap: 12px; width: min(320px, 100%); }
